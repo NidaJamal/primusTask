@@ -1,0 +1,52 @@
+<mat-table [dataSource]="employees" class="mat-elevation-z8">
+    <!-- S.No Column -->
+    <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element;let i = index "> {{i + 1}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}} </mat-cell>
+    </ng-container>
+
+    <!-- Gender Column -->
+    <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+    </ng-container>
+
+    <!-- Department Column -->
+    <ng-container matColumnDef="department">
+        <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.department}} </mat-cell>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element;let i = index">
+            <mat-icon aria-hidden="false" aria-label="create icon" [routerLink]="['/edit/', i + 1]">create</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="delete icon" (click)="deleteRecord(i)">delete</mat-icon>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<div *ngIf="employees.length === 0">No data available.</div>

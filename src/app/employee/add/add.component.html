@@ -1,0 +1,52 @@
+<h2> {{ title }} user </h2>
+
+<form [formGroup]="profileForm">
+
+    <div class="row ">
+        <div class="col-md-6 col-xs-6 ">
+            <mat-form-field>
+                <input matInput placeholder="First name" formControlName="firstName" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 col-xs-6 ">
+            <mat-form-field>
+                <input matInput placeholder="Last name" formControlName="lastName" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xs-6 ">
+            <mat-form-field>
+                <mat-label>Phone number</mat-label>
+                <input matInput formControlName="phone" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 col-xs-6 ">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xs-6 ">
+            <mat-label>Gender: </mat-label>
+            <mat-radio-group class="tp-radio-group" formControlName="gender">
+                <mat-radio-button class="tp-radio-button " *ngFor="let gender_list of gender" [value]="gender_list ">
+                    {{gender_list}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="col-md-6 col-xs-6 ">
+            <mat-form-field>
+                <mat-label>Department</mat-label>
+                <input matInput formControlName="department" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button color="accent" (click)="addEmployee()">{{ title }}</button>
+
+</form>

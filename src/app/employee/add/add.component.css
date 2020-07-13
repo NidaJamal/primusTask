@@ -1,0 +1,20 @@
+.tp-radio-group {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+
+.tp-radio-button {
+    margin: 5px;
+}
+
+:host /deep/ .mat-radio-label-content {
+    font-weight: 300 !important;
+}
+
+.error-message {
+    color: #f44336;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+}
